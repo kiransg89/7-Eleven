@@ -58,37 +58,6 @@ public class HelloWorldModel {
 
     @PostConstruct
     protected void init() {
-    	final Map<String, String> map = new HashMap<String, String>();
-
-		// https://docs.adobe.com/content/docs/en/aem/6-2/develop/ref/javadoc/com/day/cq/search/eval/PathPredicateEvaluator.html
-		map.put("path", "/content/we-retail/language-masters/en/products");
-		map.put("1_property", "cq:tags");
-		map.put("fulltext", "pants");
-		map.put("p.facets", "true");
-
-		//ResourceResolver resourceResolver = request.getResourceResolver();
-		Query query = queryBuilder.createQuery(PredicateGroup.create(map), resourceResolver.adaptTo(Session.class));
-
-		SearchResult result = query.getResult();
-		ArrayList<String> Keyss = new ArrayList<String>();
-
-		Map<String, Facet> facets;
-		try {
-			facets = result.getFacets();
-			
-			for (String key : facets.keySet()) {
-				Facet facet = facets.get(key);
-				if (facet.getContainsHit()) {
-					for (Bucket bucket : facet.getBuckets()) {
-						bucket.getCount();
-						Keyss.add(bucket.getValue());
-					}
-				}
-			}
-		} catch (RepositoryException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
         message = "\tHello World!\n";
         message += "\tThis is instance: " + settings.getSlingId() + "\n";
