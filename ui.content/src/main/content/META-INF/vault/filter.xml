@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/slingmodel64"/>
+    <filter root="/content/slingmodel64"/>
+    <filter root="/content/dam/slingmodel64"/>
+</workspaceFilter>
